@@ -20,7 +20,13 @@ AsteriskNG уже доступен в amoCRM.
 
 ## Для разработчиков.
 
-### Конастанты сборки.
+
+### Пример backend`а.
+
+Для тестирования вы можете использовать тестовый backend [AsteriskNG-Server](https://github.com/iqtek/asterisk_ng_server). 
+
+
+### Константы сборки.
 
 + SETTINGS_FIELD: имя поля с настройками из manifest.json.
 + NOTIFICATON_DELAY: минимальная задержка между уведомлениями.
@@ -64,6 +70,7 @@ AsteriskNG уже доступен в amoCRM.
 В **data** хранится стандартная для jsonprc команда, за тем исключением, что требуется указывать **только именованные аргументы**.
 
 Пример запроса для команды оригинации (поле **json**):
+
 ```json
 {
     "headers": {
@@ -71,7 +78,7 @@ AsteriskNG уже доступен в amoCRM.
         "amouser_id": 7461242,
         "widget_version":"1.0.0"
     },
-        "content":{
+    "content":{
         "id":18,
         "jsonrpc":"2.0",
         "method":"originate",
@@ -79,22 +86,23 @@ AsteriskNG уже доступен в amoCRM.
     }
 }
 ```
+
 Пример ответа: 
+
 ```json
 {
     "headers": {
         "status_code": 200,
-            "detail": "success"
+        "detail": "success"
+    },
+    "content": {
+        "jsonrpc": "2.0",
+        "result": {
+            "result": {"foo": "bar"},
+            "exception": null,
+            "exception_params": null,
         },
-        "content": {
-            "jsonrpc": "2.0",
-            "result": {
-                "result": {"foo": "bar"},
-                "exception": null,
-                "exception_params": null,
-            },
-            "id": 18,
-        }
+        "id": 18
     }
 }
 ```

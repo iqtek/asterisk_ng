@@ -8,6 +8,7 @@ const { VueLoaderPlugin } = require('vue-loader')
 const TerserPlugin = require('terser-webpack-plugin');
 const ZipPlugin = require("zip-webpack-plugin");
 
+
 const BUILD_DIR = "build"
 
 
