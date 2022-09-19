@@ -1,0 +1,38 @@
+{
+  "widget": {
+    "name": "widget.name",
+    "description": "widget.description",
+    "short_description": "widget.short_description",
+    "version": "1.0.0",
+    "interface_version": 2,
+    "init_once": true,
+    "locale": [
+      "ru",
+      "en"
+    ],
+    "installation": true,
+    "is_showcase": false,
+    "support": {
+      "link": "https://iqtek.ru",
+      "email": "Sales@iqtek.ru"
+    }
+  },
+  "locations": [
+    "ccard-1",
+    "clist-0",
+    "lcard-1",
+    "llist-0",
+    "settings"
+  ],
+  "tour": {
+    "is_tour": true,
+    "tour_description": "widget.tour_description"
+  },
+  "settings": {
+    "jsonSettings": {
+      "name": "system.jsonSettings",
+      "type": "text",
+      "required": true
+    }
+  }
+}

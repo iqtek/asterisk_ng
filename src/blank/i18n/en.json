@@ -1,0 +1,43 @@
+{
+    "system":{
+        "jsonSettings": "If you see this, refresh the page!"
+    },
+    "widget": {
+        "name": "Amocrm-Asterisk-NG",
+        "short_description": "Asterisk integration with amoCRM.",
+        "description": "Full description",
+        "tour_description": ""
+    },
+    "domain": {
+        "amocrm": {
+            "notification": {
+                "not_available": {
+                    "header": "Server error.",
+                    "text": "The server stopped responding to requests."
+                }
+            },
+            "panel": {
+                "input_hint": "Enter number or name",
+                "no_contacts": "No matches found.",
+                "unknown_contact": "Unknown contact"
+            },
+            "settings": {
+                "save_button": "Сохранить",
+                "field": {
+                    "secret_key": "Secret key",
+                    "server_address": "Server address",
+                    "show_panel_check": "Show panel",
+                    "enable_notification": "Enable notification"
+                },
+                "status": {
+                    "connected": "Connected",
+                    "invalid_secret_key": "Invalid secret key.",
+                    "incompatible_version": "Incompatible server version.",
+                    "not_available": "Server is not available.",
+                    "unknown_error": "Unknown server error.",
+                    "not_configured": "Not configured."
+                }
+            }
+        }
+    }
+}

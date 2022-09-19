@@ -1,0 +1,43 @@
+{
+    "system": {
+        "jsonSettings": "Если вы это видите, обновите страницу!"
+    },
+    "widget": {
+        "name": "AsteriskNG",
+        "short_description": "Asterisk integration with amoCRM.",
+        "description": "Описание",
+        "tour_description": ""
+    },
+    "domain": {
+        "amocrm": {
+            "notification": {
+                "not_available": {
+                    "header": "Ошибка сервера.",
+                    "text": "Сервер перестал отвечать."
+                }
+            },
+            "panel": {
+                "input_hint": "Номер или имя",
+                "no_contacts": "Совпадений не найдено.",
+                "unknown_contact": "Неизвестный контакт"
+            },
+            "settings": {
+                "save_button": "Сохранить",
+                "field": {
+                    "secret_key": "Секретный ключ",
+                    "server_address": "Адрес сервера",
+                    "show_panel_check": "Показывать панель",
+                    "enable_notification": "Включить уведомления"
+                },
+                "status": {
+                    "connected": "Подключено",
+                    "invalid_secret_key": "Неверный секретный ключ.",
+                    "incompatible_version": "Несовместимая версия сервера.",
+                    "not_available": "Сервер не доступен.",
+                    "unknown_error": "Неизвестная ошибка сервера.",
+                    "not_configured": "Не настроено."
+                }
+            }
+        }
+    }
+}
