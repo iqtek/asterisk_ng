@@ -26,7 +26,14 @@
   ],
   "tour": {
     "is_tour": true,
-    "tour_description": "widget.tour_description"
+    "tour_description": "widget.tour_description",
+    "tour_images": {
+      "ru": [
+        "/images/tour_1_ru.png",
+        "/images/tour_2_ru.png",
+        "/images/tour_3_ru.png"
+      ]
+    }
   },
   "settings": {
     "jsonSettings": {
