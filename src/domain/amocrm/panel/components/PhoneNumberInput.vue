@@ -41,7 +41,9 @@
         <button
             :disabled="isDisabled || disableButton"
             @click="selectPhone"
-            v-bind:class="{ widget__button__disabled: isDisabled || disableButton }"
+            v-bind:class="{
+                widget__button__disabled: isDisabled || disableButton,
+            }"
             class="widget__button"
         >
             <IconBase
@@ -55,7 +57,6 @@
 </template>
 
 <script lang="ts">
-
 import { defineComponent } from "vue";
 import vSelect from "vue-select";
 import IconBase from "./icons/IconBase.vue";
@@ -71,7 +72,6 @@ import { IRedirectFunction } from "../../../server/functions/core/functions/IRed
 
 import { Contact } from "../../../server/functions/core/models/Contact";
 import { i18n } from "../../../../infrastructure/functions";
-
 
 export default defineComponent({
     components: {
@@ -105,26 +105,30 @@ export default defineComponent({
             let promise: Promise<any>;
 
             if (this.isCallControl) {
-                
-                const redirectCommand: IRedirectFunction = Container.getValue("IRedirectFunction");
+                const redirectCommand: IRedirectFunction =
+                    Container.getValue("IRedirectFunction");
                 if (!(this.selected === null)) {
                     promise = redirectCommand.execute(this.selected.phone);
-
                 }
                 promise = redirectCommand.execute(this.input);
-
-            }else if (!(this.selected === null)) {
-                const originationCommand: IOriginationByContactFunction = Container.getValue("IOriginationByContactFunction");
+            } else if (!(this.selected === null)) {
+                const originationCommand: IOriginationByContactFunction =
+                    Container.getValue("IOriginationByContactFunction");
                 promise = originationCommand.execute(this.selected.uuid);
-            }else{
-                const originationCommand: IOriginationFunction = Container.getValue("IOriginationFunction");
+            } else {
+                const originationCommand: IOriginationFunction =
+                    Container.getValue("IOriginationFunction");
                 promise = originationCommand.execute(this.input);
             }
 
             promise.then(
-                (result) => {this.disableButton = false;},
-                (error) => {this.disableButton = false;}
-            )
+                (result) => {
+                    this.disableButton = false;
+                },
+                (error) => {
+                    this.disableButton = false;
+                }
+            );
             return;
         },
         onSearch: debounce(function (
@@ -132,7 +136,9 @@ export default defineComponent({
             loading: (arg0: boolean) => void
         ) {
             loading(true);
-            const getСontactsСommand: IGetContactsFunction = Container.getValue("IGetContactsFunction");
+            const getСontactsСommand: IGetContactsFunction = Container.getValue(
+                "IGetContactsFunction"
+            );
             const promise = getСontactsСommand.execute(search, 10);
             promise.then(
                 (result) => {
@@ -161,7 +167,8 @@ export default defineComponent({
         },
     },
     mounted() {
-        const getLastСontactsСommand: IGetLastContactsFunction = Container.getValue("IGetLastContactsFunction");
+        const getLastСontactsСommand: IGetLastContactsFunction =
+            Container.getValue("IGetLastContactsFunction");
         const promise = getLastСontactsСommand.execute(10);
 
         promise.then(
@@ -194,11 +201,12 @@ export default defineComponent({
 }
 
 .v-select {
-    width: 195px;
+    margin-right: 10px;
+    min-width: 195px;
     --vs-dropdown-option--active-bg: #f2f2f2;
     --vs-dropdown-option--active-color: black;
 }
-.vs__search{
+.vs__search {
     color: black !important;
     opacity: 1 !important;
 }

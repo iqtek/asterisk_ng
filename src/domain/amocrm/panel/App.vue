@@ -64,24 +64,28 @@ export default defineComponent({
     },
     methods: {
         setMute() {
-            const setMuteCommand: ISetMuteFunction = Container.getValue("ISetMuteFunction");
+            const setMuteCommand: ISetMuteFunction =
+                Container.getValue("ISetMuteFunction");
             const isMute = !this.currentStatus.call_info.is_mute;
             setMuteCommand.execute(isMute);
             this.currentStatus.call_info.is_mute = isMute;
         },
         setHold() {
-            const setHoldCommand: ISetHoldFunction = Container.getValue("ISetHoldFunction");
+            const setHoldCommand: ISetHoldFunction =
+                Container.getValue("ISetHoldFunction");
             const isHold = !this.currentStatus.call_info.is_hold;
             setHoldCommand.execute(isHold);
             this.currentStatus.call_info.is_hold = isHold;
         },
         hangup() {
-            const hangupCommand: IHangupFunction = Container.getValue("IHangupFunction");
+            const hangupCommand: IHangupFunction =
+                Container.getValue("IHangupFunction");
             hangupCommand.execute();
             this.currentStatus = { status: CallStatus.NOT_CONVERSATION };
         },
         updateStatus() {
-            const getStatusCommand: IGetAgentStatusFunction =Container.getValue("IGetAgentStatusFunction");
+            const getStatusCommand: IGetAgentStatusFunction =
+                Container.getValue("IGetAgentStatusFunction");
 
             const promise = getStatusCommand.execute(this.currentStatus);
             promise.then(
@@ -122,16 +126,16 @@ export default defineComponent({
             const localY = event.pageY - panel.offsetTop;
 
             function move_to(x: number, y: number) {
-                if(x - localX < 0){
+                if (x - localX < 0) {
                     panel.style.left = "0px";
-                }else{
-                    panel.style.left = (x - localX) + "px";
+                } else {
+                    panel.style.left = x - localX + "px";
                 }
 
-                if(y - localY < 0){
+                if (y - localY < 0) {
                     panel.style.top = "0px";
-                }else{
-                    panel.style.top = (y - localY) + "px";
+                } else {
+                    panel.style.top = y - localY + "px";
                 }
             }
             document.onmousemove = function (event) {
@@ -153,12 +157,11 @@ export default defineComponent({
 </script>
 
 <style>
-
 .asterisk__panel {
     z-index: 999;
     position: relative;
     box-sizing: content-box;
-    width: 250px;
+    min-width: 250px;
     top: 90vh;
     left: calc(100vw - 377px);
     padding: 10px;
