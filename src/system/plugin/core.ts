@@ -36,7 +36,7 @@ export type PluginCallbacks = {
     init?: () => boolean;
     bind_actions?: () => boolean;
     settings?: () => void;
-    onSave?: (arg0: {active: string, fields: any}) => boolean;
+    onSave?: (arg0: { active: string, fields: any }) => boolean;
     destroy?: () => boolean;
 
     dpSettings?: () => void;
@@ -87,6 +87,7 @@ export interface IPlugin {
         amouser_id: number,
         amouser: string,
         amohash: string,
+        domain: string,
     };
 
     crm_post(

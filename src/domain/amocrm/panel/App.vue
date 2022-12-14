@@ -13,6 +13,9 @@
                     ? this.currentStatus.call_info.contact_phone
                     : ''
             "
+            :contactLink="
+                'call_info' in this.currentStatus ? generateLink() : '#'
+            "
             :isMute="
                 'call_info' in this.currentStatus
                     ? this.currentStatus.call_info.is_mute
@@ -82,6 +85,13 @@ export default defineComponent({
                 Container.getValue("IHangupFunction");
             hangupCommand.execute();
             this.currentStatus = { status: CallStatus.NOT_CONVERSATION };
+        },
+        generateLink() {
+            if ("call_info" in this.currentStatus) {
+                return `/contacts/detail/${this.currentStatus.call_info.contact_id}`;
+            } else {
+                return "#";
+            }
         },
         updateStatus() {
             const getStatusCommand: IGetAgentStatusFunction =

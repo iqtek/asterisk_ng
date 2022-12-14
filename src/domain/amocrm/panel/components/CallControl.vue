@@ -1,12 +1,14 @@
 <template>
     <div class="call__control__block">
-        <span class="control__block__text control__block__name">
-            {{
-                this.contactName === null
-                    ? _i18n("domain.amocrm.panel.unknown_contact")
-                    : this.contactName
-            }}
-        </span>
+        <a class="contact__link" :href="contactLink">
+            <span class="control__block__text control__block__name">
+                {{
+                    this.contactName === null
+                        ? _i18n("domain.amocrm.panel.unknown_contact")
+                        : this.contactName
+                }}
+            </span>
+        </a>
         <span class="control__block__text control__block__phone">
             {{ this.contactPhone }}
         </span>
@@ -52,7 +54,6 @@
 </template>
 
 <script lang="ts">
-
 import { defineComponent } from "vue";
 import IconBase from "./icons/IconBase.vue";
 import { i18n } from "../../../../infrastructure/functions";
@@ -63,6 +64,10 @@ export default defineComponent({
     },
     props: {
         contactName: {
+            type: String,
+            requaried: false,
+        },
+        contactLink: {
             type: String,
             requaried: false,
         },
@@ -122,6 +127,10 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.contact__link {
+    text-decoration: none !important;
+    border: none !important;
+}
 
 .widget__panel__element {
     margin-bottom: 10px;

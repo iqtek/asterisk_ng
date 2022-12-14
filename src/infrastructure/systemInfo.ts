@@ -6,10 +6,11 @@ export type SystemInfo = {
     amouserId: number,
     amouserEmail: string,
     widgetVersion: string
+    domain: string
 }
 
 
-export function getSystemInfo(): SystemInfo{
+export function getSystemInfo(): SystemInfo {
     const plugin: IPlugin = Container.getValue("IPlugin");
 
     const system = plugin.system();
@@ -18,6 +19,7 @@ export function getSystemInfo(): SystemInfo{
     return {
         amouserId: system.amouser_id,
         amouserEmail: system.amouser,
-        widgetVersion: version
+        widgetVersion: version,
+        domain: system.domain,
     };
 }
