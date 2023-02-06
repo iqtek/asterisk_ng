@@ -1,6 +1,10 @@
 <template>
     <div class="call__control__block">
-        <a class="contact__link" :href="contactLink">
+        <a
+            class="contact__link"
+            :href="contactLink"
+            :disabled="contactLink === null"
+        >
             <span class="control__block__text control__block__name">
                 {{
                     this.contactName === null
@@ -125,8 +129,12 @@ export default defineComponent({
     },
 });
 </script>
-
 <style scoped>
+.call__control__block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
 .contact__link {
     text-decoration: none !important;
     border: none !important;
@@ -164,5 +172,6 @@ export default defineComponent({
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    align-self: stretch;
 }
 </style>

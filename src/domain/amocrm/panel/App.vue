@@ -14,7 +14,7 @@
                     : ''
             "
             :contactLink="
-                'call_info' in this.currentStatus ? generateLink() : '#'
+                'call_info' in this.currentStatus ? generateLink() : null
             "
             :isMute="
                 'call_info' in this.currentStatus
@@ -88,9 +88,12 @@ export default defineComponent({
         },
         generateLink() {
             if ("call_info" in this.currentStatus) {
+                if (this.currentStatus.call_info.contact_id == null) {
+                    return null;
+                }
                 return `/contacts/detail/${this.currentStatus.call_info.contact_id}`;
             } else {
-                return "#";
+                return null;
             }
         },
         updateStatus() {
